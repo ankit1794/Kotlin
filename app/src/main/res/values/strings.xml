@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">NewTask</string>
+    <string name="btn_logout">btn_logout</string>
+    <string name="user_dashboard">Dashboard</string>
+    <string name="btn_show_profile">Show Profile</string>
+    <string name="btn_hide_profile">Hide Profile</string>
+    <string name="user_login">Login User</string>
+</resources>
