@@ -19,24 +19,6 @@ import retrofit2.Response
  */
 class DashBoardActivity : AppCompatActivity() {
 
-    /* @BindView(R.id.tv_user_name)
-     internal var tvName: TextView? = null
-
-     @BindView(R.id.tv_user_username)
-     internal var tvUsername: TextView? = null
-
-     @BindView(R.id.tv_user_email)
-     internal var tvEmail: TextView? = null
-
-     @BindView(R.id.ll_dashboard)
-     internal var llDashboard: LinearLayout? = null
-
-     @BindView(R.id.btn_logout)
-     internal var btnLogout: Button? = null
-
-     @BindView(R.id.btn_show_hide_profile)
-     internal var btnShowHideProfile: Button? = null*/
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.user_dashboard)
@@ -64,9 +46,9 @@ class DashBoardActivity : AppCompatActivity() {
 
                         if (btn_show_hide_profile!!.text == getString(R.string.btn_show_profile)) {
                             //show profile
-                            tv_user_name!!.text = response.body()!!.user!!.name
-                            tv_user_username!!.text = response.body()!!.user!!.userName
-                            tv_user_email!!.text = response.body()!!.user!!.emailId
+                            tv_user_name!!.text = response.body()?.user?.name
+                            tv_user_username!!.text = response.body()?.user?.username
+                            tv_user_email!!.text = response.body()?.user?.email
                             btn_show_hide_profile!!.setText(R.string.btn_hide_profile)
                             //llDashboard!!.visibility = View.VISIBLE
                         } else {

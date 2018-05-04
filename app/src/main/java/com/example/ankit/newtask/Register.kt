@@ -19,24 +19,6 @@ import retrofit2.Response
  */
 class RegisterActivity : AppCompatActivity() {
 
-   /* @BindView(R.id.et_register_name)
-    internal var registerName: EditText? = null
-
-    @BindView(R.id.et_register_username)
-    internal var registerUsername: EditText? = null
-
-    @BindView(R.id.et_register_email)
-    internal var registeremail: EditText? = null
-
-    @BindView(R.id.et_register_password)
-    internal var registerPassword: EditText? = null
-
-    @BindView(R.id.btn_login)
-    internal var btnLogin: Button? = null
-
-    @BindView(R.id.btn_register)
-    internal var btnRegister: Button? = null*/
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.user_registeration)
@@ -55,15 +37,15 @@ class RegisterActivity : AppCompatActivity() {
 
         btn_register!!.setOnClickListener { v ->
             val user = User(
-                    et_register_name!!.text.toString(),
-                    et_register_username!!.text.toString(),
-                    et_register_email!!.text.toString(),
-                    et_register_password!!.text.toString()
+                    et_register_name.text.toString(),
+                    et_register_username.text.toString(),
+                    et_register_email.text.toString(),
+                    et_register_password.text.toString()
             )
             sendRequest(user)
         }
 
-        btn_login!!.setOnClickListener { v ->
+        btn_login.setOnClickListener { v ->
             val gotoLoginIntent = Intent(this@RegisterActivity,
                     LoginActivity::class.java)
             startActivity(gotoLoginIntent)
@@ -78,15 +60,15 @@ class RegisterActivity : AppCompatActivity() {
         call?.enqueue(object : retrofit2.Callback<UserApiResponse> {
             override fun onResponse(call: Call<UserApiResponse>,
                                     response: Response<UserApiResponse>) {
-                if (response.isSuccessful()) {
+                if (response.isSuccessful) {
                     Toast.makeText(this@RegisterActivity, "User Registered\n success: "
-                            + response.body()!!.isSuccess, Toast.LENGTH_SHORT).show()
+                            + response.body()?.isSuccess, Toast.LENGTH_SHORT).show()
 
                     // clear fields
-                    et_register_name!!.setText("")
-                    et_register_username!!.setText("")
-                    et_register_email!!.setText("")
-                    et_register_password!!.setText("")
+                    et_register_name.setText("")
+                    et_register_username.setText("")
+                    et_register_email.setText("")
+                    et_register_password.setText("")
 
                     val gotoLoginIntent = Intent(this@RegisterActivity,
                             LoginActivity::class.java)

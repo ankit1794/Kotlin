@@ -3,19 +3,19 @@ package com.example.ankit.newtask.model
 import com.google.gson.annotations.SerializedName
 
 /**
- * Created by ankit on 14/3/18.
+ * Created by dell on 14/3/18.
  */
-data class User(
 
-        @SerializedName("id")
-        val id: String,
+class User(
+        @field:SerializedName("name")
+        var name: String?,
+        @field:SerializedName("username")
+        var username: String?,
+        @field:SerializedName("email")
+        var email: String?,
+        @field:SerializedName("password")
+        var password: String?) {
 
-        @SerializedName("name")
-        val name: String,
-
-        @SerializedName("user_name")
-        val userName: String,
-
-        @SerializedName("email_id")
-        val emailId: String
-)
+    @SerializedName("id")
+    var id: String = ""
+}

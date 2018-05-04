@@ -64,7 +64,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_login1"
         android:layout_below="@id/ll_login_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -80,13 +80,13 @@
         android:gravity="center"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
-        android:layout_below="@id/btn_login"
+        android:layout_below="@id/btn_login1"
         android:text="if_not_registerd"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
 
 
     <Button
-        android:id="@+id/btn_register"
+        android:id="@+id/btn_register1"
         android:layout_below="@id/tv_if_not_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
