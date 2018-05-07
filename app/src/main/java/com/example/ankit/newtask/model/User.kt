@@ -16,6 +16,7 @@ class User(
         @field:SerializedName("password")
         var password: String?) {
 
+
     @SerializedName("id")
     var id: String = ""
 }

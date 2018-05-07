@@ -8,12 +8,19 @@
     tools:context="com.example.ankit.newtask.RegisterActivity"
     >
 
+    <ImageView
+        android:id="@+id/imv_snooze"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@drawable/snooze"
+        />
+
 
     <LinearLayout
         android:id="@+id/ll_register_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/imv_snooze"
         android:orientation="horizontal"
         android:layout_marginTop="20dp"
         >
@@ -23,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="name"
+            android:text="Name"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
 
         <EditText
@@ -50,7 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="username"
+            android:text="Username"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
 
         <EditText
@@ -63,9 +70,8 @@
 
     </LinearLayout>
 
-
-    <LinearLayout
-        android:id="@+id/ll_register_email"
+   <!-- <LinearLayout
+        android:id="@+id/ll_register_mobile_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/ll_register_username"
@@ -78,7 +84,35 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="email"
+            android:text="Mobile Number"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+
+        <EditText
+            android:id="@+id/et_register_mobile_number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="enter_username"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+
+    </LinearLayout>-->
+
+
+    <LinearLayout
+        android:id="@+id/ll_register_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_register_username"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Email"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
 
         <EditText
@@ -97,7 +131,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@id/ll_register_email"
+        android:layout_below="@+id/ll_register_email"
         android:layout_marginTop="20dp"
         >
 
@@ -106,7 +140,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="password"
+            android:text="Password"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
 
         <EditText
@@ -127,7 +161,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
-        android:text="register"
+        android:text="Register"
         />
 
     <TextView

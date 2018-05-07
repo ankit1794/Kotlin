@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
  */
 object Client {
     // for real device 192.168.0.108
-    val BASE_URL = "http://192.168.0.108:3000/"
+    val BASE_URL = "http://192.168.0.108:4000/"
     var retrofit: Retrofit? = null
 
     val client: Retrofit?

@@ -8,13 +8,22 @@
     tools:context="com.example.ankit.newtask.LoginActivity"
     >
 
+
+    <ImageView
+        android:id="@+id/imv_snooze"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@drawable/snooze"
+        />
+
+
+
     <LinearLayout
         android:id="@+id/ll_login_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:orientation="horizontal"
-        android:layout_marginTop="20dp"
+        android:layout_below="@+id/imv_snooze"
         >
 
         <TextView

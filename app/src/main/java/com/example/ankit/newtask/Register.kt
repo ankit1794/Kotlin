@@ -1,15 +1,14 @@
 package com.example.ankit.newtask
 
+import android.app.Activity
 import android.content.Intent
-import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
-import butterknife.ButterKnife
 import com.example.ankit.newtask.model.User
 import com.example.ankit.newtask.model.UserApiResponse
 import com.example.ankit.newtask.retrofit.APIService
 import com.example.ankit.newtask.retrofit.Client
 import kotlinx.android.synthetic.main.user_registeration.*
+import me.rohanpeshkar.helper.HelperActivity
 import retrofit2.Call
 import retrofit2.Response
 
@@ -17,25 +16,20 @@ import retrofit2.Response
 /**
  * Created by ankit on 14/3/18.
  */
-class RegisterActivity : AppCompatActivity() {
+class RegisterActivity : HelperActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.user_registeration)
+    override fun create() {
+        et_register_name.hint = "name"
+        et_register_username.hint = "username"
+        et_register_email.hint = "email"
+        et_register_password.hint = "pasword"
+        btn_login.text = "Login"
+        btn_register.text = "register"
 
-        ButterKnife.bind(this)
+        /*//set register title
+        title = "User Register"*/
 
-        et_register_name.hint="name"
-        et_register_username.hint="username"
-        et_register_email.hint="email"
-        et_register_password.hint="pasword"
-        btn_login.text="LOgin"
-        btn_register.text="register"
-
-        //set register title
-        title = "User Register"
-
-        btn_register!!.setOnClickListener { v ->
+        btn_register.setOnClickListener {
             val user = User(
                     et_register_name.text.toString(),
                     et_register_username.text.toString(),
@@ -45,10 +39,11 @@ class RegisterActivity : AppCompatActivity() {
             sendRequest(user)
         }
 
-        btn_login.setOnClickListener { v ->
+        btn_login.setOnClickListener {
             val gotoLoginIntent = Intent(this@RegisterActivity,
                     LoginActivity::class.java)
             startActivity(gotoLoginIntent)
+            launch(LoginActivity::class.java)
         }
     }
 
@@ -83,5 +78,46 @@ class RegisterActivity : AppCompatActivity() {
         })
     }
 
+    override fun isToolbarPresent(): Boolean = true
+
+    override fun getLayout(): Int = R.layout.user_registeration
+
+    override fun getActivity(): Activity = this
+
 
 }
+
+/*
+override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.user_registeration)
+
+    ButterKnife.bind(this)
+
+    et_register_name.hint = "name"
+    et_register_username.hint = "username"
+    et_register_email.hint = "email"
+    et_register_password.hint = "pasword"
+    btn_login.text = "LOgin"
+    btn_register.text = "register"
+
+    //set register title
+    title = "User Register"
+
+    btn_register.setOnClickListener { v ->
+        val user = User(
+                et_register_name.text.toString(),
+                et_register_username.text.toString(),
+                et_register_email.text.toString(),
+                et_register_password.text.toString()
+        )
+        sendRequest(user)
+    }
+
+    btn_login.setOnClickListener { v ->
+        val gotoLoginIntent = Intent(this@RegisterActivity,
+                LoginActivity::class.java)
+        startActivity(gotoLoginIntent)
+    }
+}
+*/

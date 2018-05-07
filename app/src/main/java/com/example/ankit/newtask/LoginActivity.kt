@@ -2,7 +2,6 @@ package com.example.ankit.newtask
 
 import android.app.Activity
 import android.content.Context
-import android.content.Intent
 import android.content.SharedPreferences
 import android.widget.Toast
 import com.example.ankit.newtask.model.Login
@@ -39,17 +38,20 @@ class LoginActivity : HelperActivity() {
             launch(RegisterActivity::class.java)
         }
 
-
-
         btn_login1.setOnClickListener {
+
             if (et_login_username.text.toString().isNotEmpty() &&
                     et_login_password.text.toString().isNotEmpty()) {
+
                 val apiService = Client.client?.create(APIService::class.java)
                 val call = apiService?.authenticateUser(login)
 
                 call?.enqueue(object : Callback<LoginResponse> {
                     override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                         if (response.isSuccessful) {
+
+                            launch(DashBoardActivity::class.java)
+
 
                             /***
                              * get token in a String called user_token
@@ -58,7 +60,7 @@ class LoginActivity : HelperActivity() {
                              * add Toast for success event
                              */
                             val user_token = response.body()?.token
-                            //sharedPref.edit().putString("token", user_token).commit()
+                            sharedPref?.edit()?.putString("token", user_token)?.commit()
 
                             Toast.makeText(this@LoginActivity,
                                     "User logged in \n success: " + response.body()?.isSuccess
@@ -66,12 +68,13 @@ class LoginActivity : HelperActivity() {
                                             + "\n Token stored successfully in Shared Pref" + user_token,
                                     Toast.LENGTH_SHORT).show()
 
-                            //go to dashboard
+                            /*//go to dashboard
                             val gotoDashboardIntent = Intent(this@LoginActivity,
                                     DashBoardActivity::class.java)
                             gotoDashboardIntent.putExtra("token_id", user_token)
                             startActivity(gotoDashboardIntent)
-                            finish()
+                            finish()*/
+
 
                             // clear fields
                             et_login_username.setText("")
@@ -91,8 +94,6 @@ class LoginActivity : HelperActivity() {
 
             //launch(RegisterActivity::class.java)
         }
-
-
     }
 
     override fun isToolbarPresent(): Boolean = true
