@@ -2,6 +2,7 @@ package com.example.ankit.newtask
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.widget.Toast
 import com.example.ankit.newtask.model.Login
@@ -60,7 +61,7 @@ class LoginActivity : HelperActivity() {
                              * add Toast for success event
                              */
                             val user_token = response.body()?.token
-                            sharedPref?.edit()?.putString("token", user_token)?.commit()
+                            sharedPref?.edit()?.putString("token", user_token)?.apply()
 
                             Toast.makeText(this@LoginActivity,
                                     "User logged in \n success: " + response.body()?.isSuccess
@@ -68,12 +69,12 @@ class LoginActivity : HelperActivity() {
                                             + "\n Token stored successfully in Shared Pref" + user_token,
                                     Toast.LENGTH_SHORT).show()
 
-                            /*//go to dashboard
+                            //go to dashboard
                             val gotoDashboardIntent = Intent(this@LoginActivity,
                                     DashBoardActivity::class.java)
                             gotoDashboardIntent.putExtra("token_id", user_token)
                             startActivity(gotoDashboardIntent)
-                            finish()*/
+                            finish()
 
 
                             // clear fields
@@ -82,6 +83,8 @@ class LoginActivity : HelperActivity() {
                         } else {
                             Toast.makeText(this@LoginActivity,
                                     "Login Credentials is Wrong...", Toast.LENGTH_SHORT).show()
+
+
                         }
                     }
 

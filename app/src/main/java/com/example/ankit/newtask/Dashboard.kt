@@ -28,6 +28,8 @@ class DashBoardActivity : HelperActivity() {
             val apiService = Client.client?.create(APIService::class.java)
             val call = apiService?.getProfile(user_token)
 
+
+
             call?.enqueue(object : Callback<LoginResponse> {
                 override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                     if (response.isSuccessful) {
@@ -55,8 +57,7 @@ class DashBoardActivity : HelperActivity() {
 
 
             })
-/*
-        btn_logout.setOnClickListener {
+       /* btn_logout.setOnClickListener {
             launch(LoginActivity::class.java)
         }*/
         }
