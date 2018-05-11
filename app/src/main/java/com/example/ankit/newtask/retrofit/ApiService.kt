@@ -18,9 +18,9 @@ interface APIService {
     @POST("user/register")
     fun registerUser(@Body user: User): Call<UserApiResponse>
 
-    @POST("users/authenticate")
+    @POST("user/authenticate")
     fun authenticateUser(@Body login: Login): Call<LoginResponse>
 
-    @GET("users/profile")
+    @GET("user/profile")
     fun getProfile(@Header("Authorization") authToken: String): Call<LoginResponse>
 }

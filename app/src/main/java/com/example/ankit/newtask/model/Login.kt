@@ -5,15 +5,15 @@ import com.google.gson.annotations.SerializedName
 /**
  * Created by ankit on 14/3/18.
  */
-class Login(toString: Any, toString1: Any) {
+class Login (
 
-    @SerializedName("username")
-    private var username: String? = null
+    @field:SerializedName("username")
+    var username: String?,
 
-    @SerializedName("password")
-    private var password: String? = null
+    @field:SerializedName("password")
+    var password: String?)
 
-    fun Login(username: String, password: String){
+    /*fun login(username: String, password: String) {
         this.username = username
         this.password = password
     }
@@ -32,8 +32,6 @@ class Login(toString: Any, toString1: Any) {
 
     fun setPassword(password: String) {
         this.password = password
-    }
+    }*/
 
 
-
-}

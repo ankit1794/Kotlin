@@ -1,7 +1,6 @@
 package com.example.ankit.newtask
 
 import android.app.Activity
-import android.content.Intent
 import android.widget.Toast
 import com.example.ankit.newtask.model.User
 import com.example.ankit.newtask.model.UserApiResponse
@@ -40,9 +39,6 @@ class RegisterActivity : HelperActivity() {
         }
 
         btn_login.setOnClickListener {
-            val gotoLoginIntent = Intent(this@RegisterActivity,
-                    LoginActivity::class.java)
-            startActivity(gotoLoginIntent)
             launch(LoginActivity::class.java)
         }
     }
@@ -65,9 +61,7 @@ class RegisterActivity : HelperActivity() {
                     et_register_email.setText("")
                     et_register_password.setText("")
 
-                    val gotoLoginIntent = Intent(this@RegisterActivity,
-                            LoginActivity::class.java)
-                    startActivity(gotoLoginIntent)
+                    launch(LoginActivity::class.java)
                 }
             }
 

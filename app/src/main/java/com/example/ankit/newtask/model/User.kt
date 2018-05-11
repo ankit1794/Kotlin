@@ -18,5 +18,5 @@ class User(
 
 
     @SerializedName("id")
-    var id: String = ""
+    var id: String? = null
 }
